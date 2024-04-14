@@ -1,10 +1,39 @@
-<app-menu (selectedPage)="changePage($event)" [currentPage]="page"></app-menu>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <app-menu
+      (selectedPage)="changePage($event)"
+      [currentPage]="page"
+      *ngIf="page"
+      (onCloseSidenav)="onClose($event, sidenav)"
+    ></app-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav(sidenav)">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div>Online concert ticket</div>
+      <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="1.5vw" class="navigation-items">
+          <li><a routerLink="/login">Login</a></li>
+          <li><a routerLink="/signup">Register</a></li>
+          <li><a routerLink="/main">Main</a></li>
+          <li><a routerLink="/concerts">Concerts</a></li>
+        </ul>
+      </div>
+    </mat-toolbar>
+
+    <router-outlet />
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
 <!--
-<ng-template [ngIf]="page === 'main'">
-  <app-main></app-main>
-</ng-template>
-<ng-template [ngIf]="page === 'concerts'">
-  <app-concerts></app-concerts>
-</ng-template>
--->
-<router-outlet />
+    <ng-template [ngIf]="page === 'main'">
+      <app-main></app-main>
+    </ng-template>
+    <ng-template [ngIf]="page === 'concerts'">
+      <app-concerts></app-concerts>
+    </ng-template>
+    -->

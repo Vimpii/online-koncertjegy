@@ -1,16 +1,22 @@
 <p>login works!</p>
 
-<div>
-  <span>
+<div id="main-div">
+  <mat-form-field>
     <label for="email">Email: </label>
-    <input type="text" [formControl]="email" />
-  </span>
-  <span>
+    <input matInput type="text" [formControl]="email" />
+  </mat-form-field>
+  <mat-form-field>
     <label for="password">Password: </label>
-    <input type="password" [formControl]="password" />
-  </span>
-  <span>
-    <button (click)="login()">Login</button>
-    <button [routerLink]="'/signup'">Register</button>
-  </span>
+    <input matInput type="password" [formControl]="password" />
+  </mat-form-field>
+  <span
+    ><button mat-raised-button color="primary" (click)="login()">
+      Login
+    </button></span
+  >
+  <span
+    ><button mat-raised-button color="primary" [routerLink]="'/signup'">
+      Register
+    </button></span
+  >
 </div>

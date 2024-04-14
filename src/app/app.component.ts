@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
@@ -32,5 +33,15 @@ export class AppComponent implements OnInit {
   changePage(page: string) {
     // this.page = page;
     this.router.navigateByUrl(page);
+  }
+
+  onToggleSidenav(sidenav: MatSidenav) {
+    sidenav.toggle();
+  }
+
+  onClose(event: any, sidenav: MatSidenav) {
+    if (event === true) {
+      sidenav.close();
+    }
   }
 }

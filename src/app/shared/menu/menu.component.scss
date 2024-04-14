@@ -1,0 +1,21 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover,
+a:active {
+  color: whitesmoke;
+}
+
+div {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
+  height: 100vh;
+
+  > * {
+    padding: 1vw; // Adjust the padding as needed
+  }
+}
