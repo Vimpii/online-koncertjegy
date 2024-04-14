@@ -6,19 +6,17 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './pages/main/main.component';
 import { ConcertsComponent } from './pages/concerts/concerts.component';
 import { MenuComponent } from './shared/menu/menu.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    ConcertsComponent,
-    MenuComponent
+    // MainComponent,
+    // ConcertsComponent,
+    MenuComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

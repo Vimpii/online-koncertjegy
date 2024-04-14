@@ -1,9 +1,10 @@
-<app-menu (selectedPage)="changePage($event)"></app-menu>
+<app-menu (selectedPage)="changePage($event)" [currentPage]="page"></app-menu>
+<!--
 <ng-template [ngIf]="page === 'main'">
   <app-main></app-main>
 </ng-template>
 <ng-template [ngIf]="page === 'concerts'">
   <app-concerts></app-concerts>
 </ng-template>
-
-<!-- <router-outlet /> -->
+-->
+<router-outlet />
