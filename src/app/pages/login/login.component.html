@@ -1,0 +1,16 @@
+<p>login works!</p>
+
+<div>
+  <span>
+    <label for="email">Email: </label>
+    <input type="text" [formControl]="email" />
+  </span>
+  <span>
+    <label for="password">Password: </label>
+    <input type="password" [formControl]="password" />
+  </span>
+  <span>
+    <button (click)="login()">Login</button>
+    <button [routerLink]="'/signup'">Register</button>
+  </span>
+</div>
