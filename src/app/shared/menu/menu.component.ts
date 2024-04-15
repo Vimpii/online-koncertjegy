@@ -7,14 +7,19 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class MenuComponent {
   @Input() currentPage: string = '';
+  @Input() loggedInUser?: firebase.default.User | null;
   @Output() selectedPage: EventEmitter<string> = new EventEmitter<string>();
   @Output() onCloseSidenav: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLogout: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   menuSwitch() {
     this.selectedPage.emit(this.currentPage);
   }
 
-  close() {
+  close(logout?: boolean) {
+    if (logout === true) {
+      this.onLogout.emit(true);
+    }
     this.onCloseSidenav.emit(true);
   }
 }

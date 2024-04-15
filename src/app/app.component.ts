@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,10 @@ import { filter } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   page = '';
-
   routes: Array<string> = [];
+  loggedInUser?: firebase.default.User | null;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.routes = this.router.config.map((conf) => conf.path as string);
@@ -28,6 +29,18 @@ export class AppComponent implements OnInit {
           this.page = CurrentPage;
         }
       });
+
+    this.authService.isUserLoggedIn().subscribe(
+      (user) => {
+        console.log(user);
+        this.loggedInUser = user;
+        localStorage.setItem('user', JSON.stringify(user));
+      },
+      (error) => {
+        console.error(error);
+        localStorage.setItem('user', JSON.stringify('null'));
+      }
+    );
   }
 
   changePage(page: string) {
@@ -43,5 +56,16 @@ export class AppComponent implements OnInit {
     if (event === true) {
       sidenav.close();
     }
+  }
+
+  logout(_?: boolean) {
+    this.authService
+      .logout()
+      .then(() => {
+        console.log('Logged out');
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 }

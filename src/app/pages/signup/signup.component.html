@@ -1,22 +1,30 @@
 <p>signup works!</p>
 
-<div>
+<div id="main-div">
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label for="email">Email: </mat-label>
+      <input matInput type="text" formControlName="email" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="password">Password: </mat-label>
+      <input matInput type="password" formControlName="password" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="password">Confirm password: </mat-label>
+      <input matInput type="password" formControlName="confirmPassword" />
+    </mat-form-field>
     <div>
-      <label for="email">Email: </label>
-      <input type="text" formControlName="email" />
-    </div>
-    <div>
-      <label for="password">Password: </label>
-      <input type="password" formControlName="password" />
-    </div>
-    <div>
-      <label for="password">Confirm password: </label>
-      <input type="password" formControlName="confirmPassword" />
-    </div>
-    <div>
-      <button type="submit">Register</button>
-      <button (click)="goBack()">Back</button>
+      <span
+        ><button mat-raised-button color="primary" type="submit">
+          Register
+        </button></span
+      >
+      <span
+        ><button mat-raised-button color="primary" (click)="goBack()">
+          Back
+        </button></span
+      >
     </div>
   </form>
 </div>

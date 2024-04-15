@@ -5,6 +5,8 @@
       [currentPage]="page"
       *ngIf="page"
       (onCloseSidenav)="onClose($event, sidenav)"
+      [loggedInUser]="loggedInUser"
+      (onLogout)="logout($event)"
     ></app-menu>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -17,7 +19,10 @@
       <div>Online concert ticket</div>
       <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
         <ul fxLayout fxLayoutGap="1.5vw" class="navigation-items">
-          <li><a routerLink="/login">Login</a></li>
+          <li *ngIf="!loggedInUser"><a routerLink="/login">Login</a></li>
+          <li *ngIf="loggedInUser">
+            <a routerLink="/login" (click)="logout()">Logout</a>
+          </li>
           <li><a routerLink="/signup">Register</a></li>
           <li><a routerLink="/main">Main</a></li>
           <li><a routerLink="/concerts">Concerts</a></li>

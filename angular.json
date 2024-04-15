@@ -103,6 +103,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "online-koncertjegy:build:production",
+              "serveTarget": "online-koncertjegy:serve:production"
+            },
+            "development": {
+              "buildTarget": "online-koncertjegy:build:development",
+              "serveTarget": "online-koncertjegy:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

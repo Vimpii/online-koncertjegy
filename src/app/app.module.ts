@@ -14,6 +14,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatListModule } from '@angular/material/list';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,19 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     FlexLayoutModule,
     MatListModule,
+    AngularFireModule.initializeApp({
+      projectId: 'online-koncertjegy',
+      appId: '1:599167310456:web:605183f5e9782316b4eb8d',
+      storageBucket: 'online-koncertjegy.appspot.com',
+      apiKey: 'AIzaSyB82oUAG1VFhZx684nM0ONXWD0biSPMcUQ',
+      authDomain: 'online-koncertjegy.firebaseapp.com',
+      messagingSenderId: '599167310456',
+      measurementId: 'G-NWZQ16NVX2',
+    }),
+    // provideFirebaseApp(() => initializeApp({"projectId":"online-koncertjegy","appId":"1:599167310456:web:605183f5e9782316b4eb8d","storageBucket":"online-koncertjegy.appspot.com","apiKey":"AIzaSyB82oUAG1VFhZx684nM0ONXWD0biSPMcUQ","authDomain":"online-koncertjegy.firebaseapp.com","messagingSenderId":"599167310456","measurementId":"G-NWZQ16NVX2"})),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,5 +12,17 @@ export class LoginComponent {
   email = new FormControl('');
   password = new FormControl('');
 
-  login() {}
+  constructor(private router: Router, private authService: AuthService) {}
+
+  login() {
+    this.authService
+      .login(this.email.value || '', this.password.value || '')
+      .then((cred) => {
+        console.log(cred);
+        this.router.navigateByUrl('/main');
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
 }

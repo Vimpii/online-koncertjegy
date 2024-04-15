@@ -5,10 +5,21 @@
       <span>Concerts</span>
     </div>
   </a>
-  <a mat-list-item routerLink="/login" (click)="close()">
+  <a mat-list-item routerLink="/login" (click)="close()" *ngIf="!loggedInUser">
     <div>
       <mat-icon>login</mat-icon>
       <span>Login</span>
+    </div>
+  </a>
+  <a
+    mat-list-item
+    routerLink="/login"
+    (click)="close(true)"
+    *ngIf="loggedInUser"
+  >
+    <div>
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
     </div>
   </a>
   <a mat-list-item routerLink="/signup" (click)="close()">

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "online-koncertjegy": {
+      "hosting": {
+        "online-koncertjegy": [
+          "online-koncertjegy"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "online-koncertjegy"
+  }
+}
