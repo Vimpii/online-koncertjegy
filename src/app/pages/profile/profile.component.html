@@ -1,1 +1,40 @@
 <p>profile works!</p>
+
+<div id="main-div">
+  <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label for="email">Email: </mat-label>
+      <input matInput type="text" formControlName="email" readonly />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="text">Username: </mat-label>
+      <input matInput type="text" formControlName="username" />
+    </mat-form-field>
+    <div>
+      <span
+        ><button mat-raised-button color="primary" type="submit">
+          Save
+        </button></span
+      >
+      <span
+        ><button
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="onDeleteProfile()"
+        >
+          Delete profile
+        </button></span
+      >
+    </div>
+  </form>
+
+  <div *ngIf="userTickets.length > 0">
+    <h2>Your Tickets:</h2>
+    <ul>
+      <li *ngFor="let ticket of userTickets">
+        Concert: {{ ticket.concert }}, Count: {{ ticket.count }}
+      </li>
+    </ul>
+  </div>
+</div>
