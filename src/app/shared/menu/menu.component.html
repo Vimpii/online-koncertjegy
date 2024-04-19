@@ -1,4 +1,10 @@
 <mat-nav-list>
+  <a mat-list-item routerLink="/main" (click)="close()">
+    <div>
+      <mat-icon>grid_view</mat-icon>
+      <span>Main</span>
+    </div>
+  </a>
   <a mat-list-item routerLink="/concerts" (click)="close()">
     <div>
       <mat-icon>music_note</mat-icon>
@@ -11,6 +17,12 @@
       <span>Login</span>
     </div>
   </a>
+  <a mat-list-item routerLink="/signup" (click)="close()" *ngIf="!loggedInUser">
+    <div>
+      <mat-icon>app_registration</mat-icon>
+      <span>Register</span>
+    </div>
+  </a>
   <a
     mat-list-item
     routerLink="/login"
@@ -20,18 +32,6 @@
     <div>
       <mat-icon>logout</mat-icon>
       <span>Logout</span>
-    </div>
-  </a>
-  <a mat-list-item routerLink="/signup" (click)="close()">
-    <div>
-      <mat-icon>app_registration</mat-icon>
-      <span>Register</span>
-    </div>
-  </a>
-  <a mat-list-item routerLink="/main" (click)="close()">
-    <div>
-      <mat-icon>grid_view</mat-icon>
-      <span>Main</span>
     </div>
   </a>
 </mat-nav-list>

@@ -19,6 +19,7 @@ export class LoginComponent {
       .login(this.email.value || '', this.password.value || '')
       .then((cred) => {
         console.log(cred);
+        alert('Login successful');
         this.router.navigateByUrl('/main');
       })
       .catch((err) => {

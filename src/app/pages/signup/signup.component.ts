@@ -48,6 +48,7 @@ export class SignupComponent implements OnInit {
             tickets: [],
           };
           this.userService.create(user);
+          alert('Signup successful');
         })
         .catch((err) => {
           console.error(err);

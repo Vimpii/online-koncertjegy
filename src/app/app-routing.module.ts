@@ -33,6 +33,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/signup/signup.module').then((m) => m.SignupModule),
   },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+    canActivate: [authGuard],
+  },
   { path: '**', redirectTo: '/not-found' },
 ];
 

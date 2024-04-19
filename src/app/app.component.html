@@ -26,6 +26,7 @@
           <li><a routerLink="/signup">Register</a></li>
           <li><a routerLink="/main">Main</a></li>
           <li><a routerLink="/concerts">Concerts</a></li>
+          <li *ngIf="loggedInUser"><a routerLink="/profile">Profile</a></li>
         </ul>
       </div>
     </mat-toolbar>
