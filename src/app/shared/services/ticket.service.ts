@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
 import { Ticket } from '../models/Ticket';
 import { User } from '../models/User';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
+import { switchMap, map, mergeMap, toArray } from 'rxjs/operators';
+import { Concert } from '../models/Concert';
+import { from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +35,8 @@ export class TicketService {
     });
   }
 
-  getTicketsByUserId(userId: string): Observable<Ticket[]> {
+  getTicketsByUserId(userId: string) {
+    console.log('Fetching tickets for user:', userId);
     return this.afs
       .collection<Ticket>(this.collectionName, (ref) =>
         ref.where('userId', '==', userId)

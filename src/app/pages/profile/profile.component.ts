@@ -41,13 +41,13 @@ export class ProfileComponent {
             email: currentUser.email,
             username: currentUser.username,
           });
+          console.log('About to fetch tickets');
           this.ticketService
-            .getTicketsByUserId(user.uid)
+            .getTicketsByUserId(this.currentUser.id)
             .subscribe((tickets) => {
+              console.log(tickets);
               this.userTickets = tickets;
               console.log(this.userTickets);
-              console.log(this.userTickets[0].concert);
-              console.log(this.userTickets[0].concertId);
             });
         });
       }
