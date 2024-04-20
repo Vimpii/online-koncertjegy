@@ -1,1 +1,48 @@
-<p>concerts works!</p>
+<h1>Concerts</h1>
+<div id="main-div" fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap>
+  <div
+    class="card-div"
+    *ngFor="let concert of concerts"
+    fxFlex="50%"
+    fxFlex.lt-md="100%"
+  >
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ concert.performer }}</mat-card-title>
+        <mat-card-subtitle>{{ concert.date | timestamp }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        mat-card-image
+        [src]="concert.image"
+        alt="Image of {{ concert.performer }}"
+      />
+      <mat-card-content>
+        <p>Location: {{ concert.location }}</p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <div class="purchase-div">
+          <mat-form-field>
+            <mat-label>Quantity</mat-label>
+            <input
+              matInput
+              type="number"
+              min="1"
+              step="1"
+              [(ngModel)]="quantities[concert.id]"
+              value="1"
+            />
+          </mat-form-field>
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="purchaseTicket(concert)"
+          >
+            Purchase ticket(s)
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+#main-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card-div {
+  flex: 0 0 calc(33.33% - 20px); /* each card will take up roughly a third of the container width, minus 20px for margins */
+  margin: 10px; /* this creates a 20px gap between cards */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card {
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  border: 10px solid white;
+}
+
+.purchase-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+button {
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+mat-card-content {
+  padding-top: 10px;
+}

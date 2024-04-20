@@ -4,9 +4,6 @@ import { Ticket } from '../models/Ticket';
 import { User } from '../models/User';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
-import { switchMap, map, mergeMap, toArray } from 'rxjs/operators';
-import { Concert } from '../models/Concert';
-import { from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -42,5 +39,9 @@ export class TicketService {
         ref.where('userId', '==', userId)
       )
       .valueChanges();
+  }
+
+  createTicket(ticket: Ticket) {
+    return this.afs.collection(this.collectionName).doc(ticket.id).set(ticket);
   }
 }
