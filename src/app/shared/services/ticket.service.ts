@@ -33,7 +33,6 @@ export class TicketService {
   }
 
   getTicketsByUserId(userId: string) {
-    console.log('Fetching tickets for user:', userId);
     return this.afs
       .collection<Ticket>(this.collectionName, (ref) =>
         ref.where('userId', '==', userId)

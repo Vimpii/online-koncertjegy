@@ -7,7 +7,6 @@ const routes: Routes = [
     path: 'main',
     loadChildren: () =>
       import('./pages/main/main.module').then((m) => m.MainModule),
-    canActivate: [authGuard],
   },
   {
     path: 'concerts',
@@ -22,7 +21,6 @@ const routes: Routes = [
         (m) => m.NotFoundModule
       ),
   },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
     path: 'login',
     loadChildren: () =>
@@ -39,6 +37,7 @@ const routes: Routes = [
       import('./pages/profile/profile.module').then((m) => m.ProfileModule),
     canActivate: [authGuard],
   },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/not-found' },
 ];
 

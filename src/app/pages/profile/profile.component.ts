@@ -41,13 +41,10 @@ export class ProfileComponent {
             email: currentUser.email,
             username: currentUser.username,
           });
-          console.log('About to fetch tickets');
           this.ticketService
             .getTicketsByUserId(this.currentUser.id)
             .subscribe((tickets) => {
-              console.log(tickets);
               this.userTickets = tickets;
-              console.log(this.userTickets);
             });
         });
       }
@@ -55,14 +52,12 @@ export class ProfileComponent {
   }
 
   onSubmit() {
-    console.log(this.currentUser);
     if (this.currentUser !== undefined && this.currentUser !== null) {
       this.currentUser.username =
         this.editProfileForm.get('username')?.value || '';
       this.userService.update(this.currentUser);
       alert('Profile updated successfully');
     }
-    console.log(this.currentUser);
   }
 
   onDeleteProfile() {
@@ -73,8 +68,10 @@ export class ProfileComponent {
       this.userService.delete(this.currentUser.id).then(() => {
         this.afAuth.currentUser.then((user) => {
           user?.delete().then(() => {
-            alert('Profile deleted successfully');
-            this.router.navigate(['/']);
+            this.authService.logout().then(() => {
+              alert('Profile deleted successfully');
+              this.router.navigate(['/main']);
+            });
           });
         });
       });

@@ -16,13 +16,13 @@
           <mat-icon>menu</mat-icon>
         </button>
       </div>
-      <div>Online concert ticket</div>
+      <div>Online Concert Ticket</div>
       <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
         <ul fxLayout fxLayoutGap="1.5vw" class="navigation-items">
+          <li><a routerLink="/main">Main</a></li>
+          <li *ngIf="loggedInUser"><a routerLink="/concerts">Concerts</a></li>
           <li *ngIf="!loggedInUser"><a routerLink="/login">Login</a></li>
           <li *ngIf="!loggedInUser"><a routerLink="/signup">Register</a></li>
-          <li><a routerLink="/main">Main</a></li>
-          <li><a routerLink="/concerts">Concerts</a></li>
           <li *ngIf="loggedInUser"><a routerLink="/profile">Profile</a></li>
           <li *ngIf="loggedInUser">
             <a routerLink="/login" (click)="logout()">Logout</a>

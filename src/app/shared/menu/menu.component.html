@@ -5,13 +5,18 @@
       <span>Main</span>
     </div>
   </a>
-  <a mat-list-item routerLink="/profile" (click)="close()">
+  <a mat-list-item routerLink="/profile" (click)="close()" *ngIf="loggedInUser">
     <div>
       <mat-icon>person</mat-icon>
       <span>Profile</span>
     </div>
   </a>
-  <a mat-list-item routerLink="/concerts" (click)="close()">
+  <a
+    mat-list-item
+    routerLink="/concerts"
+    (click)="close()"
+    *ngIf="loggedInUser"
+  >
     <div>
       <mat-icon>music_note</mat-icon>
       <span>Concerts</span>
