@@ -5,7 +5,6 @@ import { ConcertsRoutingModule } from './concerts-routing.module';
 import { ConcertsComponent } from './concerts.component';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { TimestampPipe } from '../../shared/pipes/timestamp.pipe';
 import {
   MatFormField,
   MatFormFieldModule,
@@ -15,9 +14,10 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { SharedModule } from '../../shared/shared/shared.module';
 
 @NgModule({
-  declarations: [ConcertsComponent, TimestampPipe],
+  declarations: [ConcertsComponent],
   imports: [
     CommonModule,
     ConcertsRoutingModule,
@@ -30,6 +30,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
+    SharedModule,
   ],
 })
 export class ConcertsModule {}

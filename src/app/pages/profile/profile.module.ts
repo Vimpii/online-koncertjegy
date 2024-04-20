@@ -8,10 +8,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormField } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { TimestampPipe } from '../../shared/pipes/timestamp.pipe';
+import { SharedModule } from '../../shared/shared/shared.module';
 
 @NgModule({
-  declarations: [ProfileComponent, TimestampPipe],
+  declarations: [ProfileComponent],
   imports: [
     CommonModule,
     ProfileRoutingModule,
@@ -20,6 +20,7 @@ import { TimestampPipe } from '../../shared/pipes/timestamp.pipe';
     MatButtonModule,
     MatInputModule,
     MatCardModule,
+    SharedModule,
   ],
 })
 export class ProfileModule {}
